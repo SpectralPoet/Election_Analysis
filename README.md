@@ -7,7 +7,10 @@ The analysis of the election show that:
 
 -There were 369,711 votes cast
 
--The candidates were:
+------------------------------------------------------------------------------------
+
+
+The candidates were:
   
   -Charles Casper Stockham
   
@@ -17,7 +20,7 @@ The analysis of the election show that:
   
  --------------------------------------------------------------------------------------
  
- -The candidate results were:
+ The candidate results were:
   
   -Charles Casper Stockham received 23.0% of the vote and 85,213 votes
   
@@ -27,13 +30,13 @@ The analysis of the election show that:
   
   --------------------------------------------------------------------------------
  
- -The winner of the election was:
+ The winner of the election was:
   
   -Diane DeGette, who received 73.8% of the vote and 272,892 votes
   
 ---------------------------------------------------------------------------------------  
  
- ##Challenge Overview
+##Challenge Overview
  
  
-  ## Challenge Summary
+ ##Challenge Summary
