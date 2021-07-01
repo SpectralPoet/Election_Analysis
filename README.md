@@ -15,6 +15,7 @@ The analysis of the election show that:
   
   -Raymon Anthony Doane
   
+ --------------------------------------------------------------------------------------
  
  -The candidate results were:
   
@@ -24,13 +25,15 @@ The analysis of the election show that:
   
   -Raymon Anthony Doane received 3.1% of the vote and 11,606 votes
   
+  --------------------------------------------------------------------------------
  
  -The winner of the election was:
   
   -Diane DeGette, who received 73.8% of the vote and 272,892 votes
   
-  
-  ##Challenge Overview
+---------------------------------------------------------------------------------------  
+ 
+ ##Challenge Overview
  
  
   ## Challenge Summary
