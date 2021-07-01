@@ -37,6 +37,15 @@ winning_count = 0
 #percentage of votes for winner
 winning_percentage = 0
 
+
+# 5. The winner of the election based on popular vote
+winning_candidate_summary = (
+    f"-----------------------------\n"
+    f"Winner: {winning_candidate}\n"
+    f"Winnning Vote Count: {winning_count:,}\n"
+    f"Winning Percentage: {winning_percentage:.1f}%\n"
+    f"------------------------------\n")
+
 #-----------------------------Read and analyze data:---------------------------
 
 #Create file variable to read from - with
@@ -49,6 +58,8 @@ with open(file_to_read) as read_election_data:
     
     #store and skip header data
     header_row=next(file_reader)
+
+    
     
     for row in file_reader: #for each row in the file being read
 
@@ -65,50 +76,31 @@ with open(file_to_read) as read_election_data:
         #add 1 to votes_dict every time name appears in row
         candidate_votes[candidate_name] += 1
 
-    #Close primary data file
-    read_election_data.close()
+        #Output results
+    with open(file_to_write, "w") as written_election_data:
+        #Header
+        election_results = (
+            f"\nElection Results\n"
+            f"-------------------------\n"
+            f"Total Votes: {total_votes:,}\n"
+            f"-------------------------\n")
+        print(election_results, end="")
+        written_election_data.write(election_results)
+        
+        #3. The percentage of votes each candidate won. [COMPLETE]
+        for candidate_name in candidate_votes:
+            votes = candidate_votes[candidate_name]
+            vote_percentage = float(votes)/float(total_votes) * 100
+            
+            #if current candidate name has more # and % of votes, set as temp winner
+            if (votes > winning_count) and (vote_percentage > winning_percentage):
+                winning_count = votes
+                winning_percentage = vote_percentage
+                winning_candidate = candidate_name
 
-#1. The total number of votes cast. [COMPLETE]
-#print(total_votes)
+            candidate_results = (f'{candidate_name}: {votes:,} votes, '
+                f'{vote_percentage:.1f}% of total \n')
+            print(candidate_results, end="")
+            written_election_data.write(candidate_results)
 
-#2. A complete list of candidates who revieved votes. [COMPLETE]
-#4. The total number of votes each candidate won. [COMPLETE]
-#print(candidate_votes)
-
-#3. The percentage of votes each candidate won. [COMPLETE]
-for candidate_name in candidate_votes:
-    votes = candidate_votes[candidate_name]
-    vote_percentage = float(votes)/float(total_votes) * 100
-    print(f'{candidate_name}: {vote_percentage:.1f}% ({votes,})\n')
-    
-    #if current candidate name has more # and % of votes, set as temp winner
-    if (votes > winning_count) and (vote_percentage > winning_percentage):
-        winning_count = votes
-        winning_percentage = vote_percentage
-        winning_candidate = candidate_name
-
-winning_candidate_summary = (
-    f"-----------------------------\n"
-    f"Winner: {winning_candidate}\n"
-    f"Winnning Vote Count: {winning_count:,}\n"
-    f"Winning Percentage: {winning_percentage:.1f}%\n"
-    f"------------------------------\n")
-
-# 5. The winner of the election based on popular vote.
-print(winning_candidate_summary)
-
-
-
-
-#--------------------------Write data to file:----------------------------------
-
-#Create file variable to write to - with
-with open(file_to_write, "w") as written_election_data:
-    
-    #To do: output results
-    written_election_data.write("Counties in the Election")
-    written_election_data.write("\n------------------------")
-    written_election_data.write("\nArapahoe\nDenver\nJefferson")
-
-
-    written_election_data.close()
+        written_election_data.close()
