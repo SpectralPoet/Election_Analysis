@@ -11,7 +11,8 @@
 import csv
 import random
 import os
-#import numpy (numpy can't be resolved, anaconda issue..?)
+import numpy #(numpy can't be resolved, anaconda issue..?)
+
 
 
 #---------------------------Create variables:-------------------------------
